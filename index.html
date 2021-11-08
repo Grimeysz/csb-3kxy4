@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>PUI Website</title>
+    <script src="js/script.js" async></script>
   </head>
 
-  <body>
+  <body onload="onLoad()">
     <! STICKY NAV !>
     <div class="navbar" id="mynavbar">
       <div>
@@ -22,7 +23,15 @@
       <a id="nav-rightside" href="cart.html">
         <img src="images/store-icons.png" height="35px" />
 
-        <h4 id="cartitems">0</h4>
+        <h4 id="cartitems">
+          <script>
+            var cartitems = JSON.parse(localStorage.getItem("cart"));
+            var nItems = carItems.length;
+            document.getElementById("cartitems").innerText = JSON.stringify(
+              nItems
+            );
+          </script>
+        </h4>
       </a>
     </div>
 
@@ -98,5 +107,4 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="js/script.js"></script>
 </html>
